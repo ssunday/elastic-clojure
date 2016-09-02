@@ -1,6 +1,6 @@
 # elastic-clojure
 
-Interactive elastic search with clojure because why not. Command line.
+Interactive elastic search with clojure because why not. Runs on port 4000.
 
 Uses [Elastisch.](https://github.com/clojurewerkz/elastisch)
 

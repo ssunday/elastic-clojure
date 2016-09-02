@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    function loadResults() {
+      $.ajax({
+	url: 'search',
+	data: $("#search-form").serializeArray()
+      }).success(function(data) {
+	var results = $("#results");
+	results.html(data);
+      })};
+  </script>
+  <style>
+    code {
+    font-family: monospace;
+    white-space: pre;
+    }
+  </style>
+  <title>Elastic Search with Clojure</title>
+  <h1>Elastic Search with Clojure</h1>
+</head>
+<body>
+
+  <form action="search" id="search-form">
+    <input type="text" name="query" placeholder="Query to Search Data"/>
+    <button value="Search" id="submit-form" onClick="loadResults(); return false;">Search!</button>
+  </form>
+
+  <h3> Results: </h3>
+  <code id="results"></code>
+</body>
