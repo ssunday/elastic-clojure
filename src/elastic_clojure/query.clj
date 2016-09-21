@@ -1,10 +1,21 @@
 (ns elastic-clojure.query
   (:require
+   [elastic-clojure.config :as c]
    [cheshire.core :as json]
    [clojurewerkz.elastisch.rest.document :as doc]
    [clojurewerkz.elastisch.query :as q]))
 
-(defn full-text-search [query conn index category]
-  (json/generate-string
-   (doc/search conn index category :query (q/match :_all query))
-   {:pretty true}))
+(defn- format-response [results]
+  (json/generate-string results {:pretty true}))
+
+(defn- search [query]
+  (format-response (doc/search c/conn c/index c/category :query query)))
+
+(defn full-text-search [query]
+  (search (q/match :_all query)))
+
+;; (defn search-on-first-name [first-name]
+;;   (docc/first-name first-name)))
+
+;; (defn search-on-last-name [last-name]
+;;  (format (q/match c/last-name last-name)))

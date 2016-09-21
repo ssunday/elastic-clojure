@@ -4,21 +4,20 @@
    [compojure.route :as route]
    [compojure.handler :as handler]
    [ring.adapter.jetty :refer :all]
-   [elastic-clojure.setup :refer [setup category]]
+   [elastic-clojure.setup :refer [setup]]
    [elastic-clojure.query :as query]
-   [clojurewerkz.elastisch.rest :as esr]
    [stencil.core :as stencil]))
-
-(def index "es-clj")
-
-(def conn (esr/connect "http://127.0.0.1:9200"))
 
 (defn- render-template [name args]
   (stencil/render-file (str "../resources/templates/" name) args))
 
 (defn- get-search-results [params]
   (let [query (:query params)]
-    (query/full-text-search query conn index category)))
+    (query/full-text-search query)))
+
+;; (defn- get-first-name-results [params]
+;;   (let [first-name (:first-name params)]
+;;     (query/search-on-first-name first-name)))
 
 (defroutes app-routes
   (GET "/" [] (render-template "index" {}))
@@ -30,5 +29,5 @@
       handler/site))
 
 (defn run []
-  (setup index conn)
+  (setup)
   (run-jetty app {:port 4000 :join? false}))
