@@ -1,0 +1,42 @@
+h1 {
+  border: blue solid;
+  background-color: cyan;
+  padding: 5px;
+  font-size: 1.6em;
+  text-align: center;
+}
+
+body {
+  padding: 0.5em 2.5em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+input[type="text"] {
+  border: solid 5px #c9c9c9;
+  box-shadow: inset 1px 1px 2px 0 #707070;
+  font-size: 0.9em;
+  padding: 10px;
+}
+
+button {
+  background-color: cyan;
+  font-size: 0.9em;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+button:active {
+  background-color: blue;
+  color: white;
+}
+
+code {
+  background-color: #E4E4E4;
+  display: block;
+  font-family: monospace;
+  white-space: pre;
+  width: 100%;
+}

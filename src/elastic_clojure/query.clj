@@ -13,9 +13,3 @@
 
 (defn full-text-search [query]
   (search (q/match :_all query)))
-
-;; (defn search-on-first-name [first-name]
-;;   (docc/first-name first-name)))
-
-;; (defn search-on-last-name [last-name]
-;;  (format (q/match c/last-name last-name)))

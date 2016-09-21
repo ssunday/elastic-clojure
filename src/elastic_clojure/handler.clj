@@ -3,26 +3,23 @@
    [compojure.core :refer :all]
    [compojure.route :as route]
    [compojure.handler :as handler]
+   [ring.util.response :as resp]
    [ring.adapter.jetty :refer :all]
    [elastic-clojure.setup :refer [setup]]
-   [elastic-clojure.query :as query]
-   [stencil.core :as stencil]))
+   [elastic-clojure.query :as query]))
 
-(defn- render-template [name args]
-  (stencil/render-file (str "../resources/templates/" name) args))
+(defn- render-file [name ]
+  (resp/resource-response name {:root "public"}))
 
 (defn- get-search-results [params]
   (let [query (:query params)]
     (query/full-text-search query)))
 
-;; (defn- get-first-name-results [params]
-;;   (let [first-name (:first-name params)]
-;;     (query/search-on-first-name first-name)))
-
 (defroutes app-routes
-  (GET "/" [] (render-template "index" {}))
+  (GET "/" [] (render-file "index.html"))
+  (GET "/css/index.css" [] (render-file "css/index.css"))
   (GET "/search" request (get-search-results (:params request)))
-  (route/not-found (stencil/render-string "Not Found!" {})))
+  (route/not-found (render-file "not_found.html")))
 
 (def app
   (-> app-routes
