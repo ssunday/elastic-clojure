@@ -12,7 +12,13 @@ Use command:
 
 Go to webbrowser of choice and go to port 4000 on localhost.
 
-Type in stuff to search. Currently only supports full-text searching. More to come.
+Type in stuff to search. You can search on:
+
+* Full Text Search
+
+* First-Name
+
+* Last-Name
 
 ## Running the Tests
 

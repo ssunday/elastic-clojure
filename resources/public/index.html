@@ -2,26 +2,40 @@
 <head>
   <link type="text/css" rel="stylesheet" href="css/index.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script>
-    function loadResults() {
-      $.ajax({
-	url: 'search',
-	data: $("#search-form").serializeArray()
-      }).success(function(data) {
-	var results = $("#results");
-	results.html(data);
-      })};
-  </script>
+  <script src="js/index.js"></script>
   <title>Elastic Search using Clojure</title>
   <h1>Elastic Search using Clojure</h1>
 </head>
 <body>
 
-  <form action="search" id="search-form">
-    <input type="text" name="query" placeholder="Query to Search Data"/>
-    <button value="Search" id="submit-form" onClick="loadResults(); return false;">Search!</button>
+  <form action="search" id="search-full-text-form">
+    <label for="query">
+      Full-Text Search
+    </label>
+    <input type="hidden" name="type" value="full-text" />
+    <input type="text" name="query" placeholder="Query"/>
+    <input type="submit" value="Search!" id="search-full-text" />
+  </form>
+
+  <form action="search" id="search-first-name-form">
+    <label for="query">
+     First-Name Search
+    </label>
+    <input type="hidden" name="type" value="first-name" />
+    <input type="text" name="query" placeholder="Query"/>
+    <input type="submit" value="Search!" id="search-first-name" />
+  </form>
+
+  <form action="search" id="search-last-name-form">
+    <label for="query">
+     Last-Name Search
+    </label>
+    <input type="hidden" name="type" value="last-name" />
+    <input type="text" name="query" placeholder="Query"/>
+    <input type="submit" value="Search!" id="search-last-name" />
   </form>
 
   <h3> Results: </h3>
   <code id="results"></code>
+
 </body>

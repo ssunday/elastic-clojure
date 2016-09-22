@@ -6,4 +6,8 @@
 
 (def category "person")
 
+(def first-name "first_name")
+
+(def last-name "last_name")
+
 (def conn (esr/connect "http://127.0.0.1:9200"))
