@@ -25,6 +25,12 @@
 (defmethod get-search-results "last-name" [params]
   (query/last-name-search (get-query params)))
 
+(defmethod get-search-results "email" [params]
+  (query/email-search (get-query params)))
+
+(defmethod get-search-results "gender" [params]
+  (query/gender-search (get-query params)))
+
 (defroutes app-routes
   (GET "/" [] (render-file "index.html"))
   (GET "/css/index.css" [] (render-file "css/index.css"))

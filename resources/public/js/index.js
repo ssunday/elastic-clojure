@@ -23,4 +23,6 @@ $(document).ready(function () {
   bindSubmit($("#search-full-text-form"));
   bindSubmit($("#search-first-name-form"));
   bindSubmit($("#search-last-name-form"));
+  bindSubmit($("#search-email-form"));
+  bindSubmit($("#search-gender-form"));
 });

@@ -10,4 +10,8 @@
 
 (def last-name "last_name")
 
+(def email "email")
+
+(def gender "gender")
+
 (def conn (esr/connect "http://127.0.0.1:9200"))

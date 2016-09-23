@@ -9,7 +9,9 @@
   (json/generate-string results {:pretty true}))
 
 (defn- search [query]
-  (format-response (doc/search c/conn c/index c/category :query query)))
+  (format-response (doc/search c/conn c/index c/category
+                               :query query
+                               :size 50)))
 
 (defn full-text-search [query]
   (search (q/match :_all query)))
@@ -19,3 +21,9 @@
 
 (defn last-name-search [last-name]
   (search (q/match c/last-name last-name)))
+
+(defn email-search [email]
+  (search (q/match c/email email)))
+
+(defn gender-search [gender]
+  (search (q/match c/gender gender)))

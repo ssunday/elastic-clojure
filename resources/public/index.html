@@ -7,35 +7,69 @@
   <h1>Elastic Search using Clojure</h1>
 </head>
 <body>
+  <div id="search-body" class="clearfix">
+    <form action="search" class="full" id="search-full-text-form">
+      <h4>
+	Full-Text Search
+      </h4>
+      <input type="hidden" name="type" value="full-text" />
+      <input type="text" name="query" placeholder="Anything"/>
+      <input type="submit" value="Search!" id="search-full-text" />
+    </form>
 
-  <form action="search" id="search-full-text-form">
-    <label for="query">
-      Full-Text Search
-    </label>
-    <input type="hidden" name="type" value="full-text" />
-    <input type="text" name="query" placeholder="Query"/>
-    <input type="submit" value="Search!" id="search-full-text" />
-  </form>
+    <hr />
 
-  <form action="search" id="search-first-name-form">
-    <label for="query">
-     First-Name Search
-    </label>
-    <input type="hidden" name="type" value="first-name" />
-    <input type="text" name="query" placeholder="Query"/>
-    <input type="submit" value="Search!" id="search-first-name" />
-  </form>
+    <div class="row">
+      <form action="search"  class="column-half"  id="search-first-name-form">
+	<h4>
+	  First-Name Search
+	</h4>
+	<input type="hidden" name="type" value="first-name" />
+	<input type="text" name="query" placeholder="First Name"/>
+	<input type="submit" value="Search!" id="search-first-name" />
+      </form>
 
-  <form action="search" id="search-last-name-form">
-    <label for="query">
-     Last-Name Search
-    </label>
-    <input type="hidden" name="type" value="last-name" />
-    <input type="text" name="query" placeholder="Query"/>
-    <input type="submit" value="Search!" id="search-last-name" />
-  </form>
+      <form action="search"  class="column-half" id="search-last-name-form">
+	<h4>
+	  Last-Name Search
+	</h4>
+	<input type="hidden" name="type" value="last-name" />
+	<input type="text" name="query" placeholder="Last Name"/>
+	<input type="submit" value="Search!" id="search-last-name" />
+      </form>
+    </div>
+
+    <div class="row">
+      <form action="search" class="column-half" id="search-email-form">
+	<h4>
+	  Email Search
+	</h4>
+	<input type="hidden" name="type" value="email" />
+	<input type="text" name="query" placeholder="Email"/>
+	<input type="submit" value="Search!" id="search-email" />
+      </form>
+
+      <form action="search" class="column-half" id="search-gender-form">
+	<h4>
+	  Gender Search
+	</h4>
+
+	<input type="hidden" name="type" value="gender" />
+
+	<select name="query">
+	  <option value="Female">Female</option>
+	  <option value="Male">Male</option>
+	</select>
+
+	<input type="submit" value="Search!" id="search-gender" />
+      </form>
+    </div>
+  </div>
 
   <h3> Results: </h3>
+
+  <hr />
+
   <code id="results"></code>
 
 </body>
