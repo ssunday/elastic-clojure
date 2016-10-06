@@ -1,11 +1,11 @@
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   padding: 0.5em 2.5em;
 }
 
-#search-body{
-  margin:0 auto;
-  width:100%;
+#search-body {
+  margin: 0 auto;
+  width: 100%;
 }
 
 .clearfix:after {
@@ -18,6 +18,7 @@ header {
   background: #1981E7;
   box-sizing: border-box;
   border: 3px solid;
+  display: inline-block;
   text-transform: capitalize;
   width: 100%;
 }
@@ -31,6 +32,16 @@ h3 {
   font-size: 1.3em;
   margin-left: auto;
   margin-right: auto;
+}
+
+.title {
+  float: left;
+}
+
+img {
+  float: right;
+  padding: .5em;
+  width: 100px;
 }
 
 form {
@@ -80,10 +91,11 @@ input[type="submit"]:active {
 }
 
 hr {
-	height: 10px;
-	border: 0;
-	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+  height: 10px;
+  border: 0;
+  box-shadow: 0 10px 10px -10px #8c8b8b inset;
 }
+
 code {
   background-color: #E4E4E4;
   display: block;

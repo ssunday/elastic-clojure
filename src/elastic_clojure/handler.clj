@@ -11,7 +11,8 @@
 (defn- render-file [name]
   (resp/resource-response name {:root "public"}))
 
-(defn- get-query [params] (:query params))
+(defn- get-query [params]
+  (:query params))
 
 (defmulti get-search-results
   (fn [params] (:type params)))
@@ -35,6 +36,8 @@
   (GET "/" [] (render-file "index.html"))
   (GET "/css/index.css" [] (render-file "css/index.css"))
   (GET "/js/index.js" [] (render-file "js/index.js"))
+  (GET "/images/clojure.png" [] (render-file "images/clojure.png"))
+  (GET "/images/elasticsearch.png" [] (render-file "images/elasticsearch.png"))
   (GET "/search" request (get-search-results (:params request)))
   (route/not-found (render-file "not_found.html")))
 
