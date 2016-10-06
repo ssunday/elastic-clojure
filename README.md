@@ -1,6 +1,6 @@
 # elastic-clojure
 
-Interactive elastic search using lojure because why not.
+Interactive elastic search using clojure because why not.
 
 ## Running It
 
